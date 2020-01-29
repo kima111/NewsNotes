@@ -3,7 +3,7 @@ $.getJSON("/articles", function(data) {
   // For each one
   for (var i = 0; i < data.length; i++) {
     // Display the information on the page
-    $("#articles").append("<p class='article-heading' data-id='" + data[i]._id + "'>" + data[i].title + "</p><br /> <p>link to article: </p><a href='http://lite.cnn.io" + data[i].link + "'>http://lite.cnn.io" + data[i].link + "</a><hr>");
+    $("#articles").append("<p class='article-heading' data-id='" + data[i]._id + "'>" + data[i].title + " (click to save notes)</p><br /> <p>link to article: </p><a href='http://lite.cnn.io" + data[i].link + "'>http://lite.cnn.io" + data[i].link + "</a><hr>");
   }
 });
 
@@ -25,7 +25,7 @@ $(document).on("click", "p", function() {
     .then(function(data) {
       console.log(data);
       // The title of the article
-      $("#notes").append("<h2>" + data.title + "</h2>");
+      $("#notes").append("<h2>" + data.title + "(click to add note)</h2>");
       // An input to enter a new title
       $("#notes").append("<input id='titleinput' name='title' >");
       // A textarea to add a new note body
